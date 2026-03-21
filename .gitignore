@@ -272,3 +272,5 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij,visualstudiocode,eclipse,maven,gradle
 
 /.idea
+.vscode/
+.claude/
