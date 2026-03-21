@@ -4,6 +4,7 @@ import cl.springmachine.hexagonal.core.domain.pokemon.Pokemon;
 import cl.springmachine.hexagonal.ports.outbound.PokemonRepositoryPort;
 import org.springframework.stereotype.Repository;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Repository
@@ -17,11 +18,13 @@ public class PokemonRepositoryAdapter implements PokemonRepositoryPort {
 
     @Override
     public Integer savePokemon(Pokemon pokemon) {
-        return repositoryAdapter.save(PokemonEntity.builder()
+        PokemonEntity entity = Objects.requireNonNull(PokemonEntity.builder()
                 .name(pokemon.getName())
                 .type(pokemon.getType())
                 .pokedexNumber(pokemon.getPokedexNumber())
-                .build()).getPokedexNumber();
+                .build());
+
+        return repositoryAdapter.save(entity).getPokedexNumber();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package cl.springmachine.custom.service.pokemon.impl;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -33,11 +34,13 @@ public class PokemonServiceImpl implements PokemonService {
                         .stream().findFirst().map(pokemonType -> pokemonType.getType().getName()).orElseThrow())
                 .build();
 
-        return pokemonRepository.save(PokemonEntity.builder()
+        PokemonEntity entity = Objects.requireNonNull(PokemonEntity.builder()
                 .type(pokemonDto.getType())
                 .name(pokemonDto.getName())
                 .pokedexNumber(pokemonDto.getPokedexNumber())
-                .build()).getPokedexNumber();
+                .build());
+
+        return pokemonRepository.save(entity).getPokedexNumber();
     }
 
     @Override

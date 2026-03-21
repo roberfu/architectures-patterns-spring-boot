@@ -1,5 +1,6 @@
 package cl.springmachine.layered.service.impl;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -35,16 +36,18 @@ public class PokemonServiceImpl implements PokemonService {
                         .stream().findFirst().map(pokemonType -> pokemonType.getType().getName()).orElseThrow())
                 .build();
 
-        return pokemonRepository.save(PokemonEntity.builder()
+        PokemonEntity entity = Objects.requireNonNull(PokemonEntity.builder()
                 .type(pokemonDTO.getType())
                 .name(pokemonDTO.getName())
                 .pokedexNumber(pokemonDTO.getPokedexNumber())
-                .build()).getPokedexNumber();
+                .build());
+
+        return pokemonRepository.save(entity).getPokedexNumber();
     }
 
     @Override
     public PokemonDTO getPokemon(Integer pokedexNumber) {
-        Optional<PokemonEntity> optional = pokemonRepository.findById(pokedexNumber);
+        Optional<PokemonEntity> optional = pokemonRepository.findById(Objects.requireNonNull(pokedexNumber));
         return optional.map(pokemonEntity -> PokemonDTO.builder()
                 .pokedexNumber(pokemonEntity.getPokedexNumber())
                 .name(pokemonEntity.getName())

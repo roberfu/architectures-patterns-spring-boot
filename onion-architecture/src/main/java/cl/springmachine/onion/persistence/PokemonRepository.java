@@ -1,5 +1,6 @@
 package cl.springmachine.onion.persistence;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,7 +17,7 @@ public interface PokemonRepository extends JpaRepository<PokemonEntity, Integer>
 	}
 
 	default Pokemon readPokemon(Integer pokedexNumber) {
-		Optional<PokemonEntity> optional = findById(pokedexNumber);
+		Optional<PokemonEntity> optional = findById(Objects.requireNonNull(pokedexNumber));
 		return optional.map(
 				t -> Pokemon.builder().pokedexNumber(t.getPokedexNumber()).name(t.getName()).type(t.getType()).build())
 				.orElse(null);
