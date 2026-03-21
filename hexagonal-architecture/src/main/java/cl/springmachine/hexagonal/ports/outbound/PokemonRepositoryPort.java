@@ -1,6 +1,6 @@
 package cl.springmachine.hexagonal.ports.outbound;
 
-import cl.springmachine.hexagonal.core.domain.pokemon.Pokemon;
+import cl.springmachine.hexagonal.application.domain.pokemon.Pokemon;
 
 public interface PokemonRepositoryPort {
 

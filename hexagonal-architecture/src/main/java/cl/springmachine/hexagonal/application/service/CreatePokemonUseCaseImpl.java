@@ -1,10 +1,10 @@
-package cl.springmachine.hexagonal.core.service;
+package cl.springmachine.hexagonal.application.service;
 
 import org.springframework.stereotype.Service;
 
 import cl.springmachine.hexagonal.adapters.outbound.PokeApiPokemonDto;
-import cl.springmachine.hexagonal.core.domain.pokemon.Pokemon;
-import cl.springmachine.hexagonal.core.usecases.CreatePokemonUseCase;
+import cl.springmachine.hexagonal.application.domain.pokemon.Pokemon;
+import cl.springmachine.hexagonal.application.usecases.CreatePokemonUseCase;
 import cl.springmachine.hexagonal.ports.inbound.PokemonDto;
 import cl.springmachine.hexagonal.ports.outbound.PokeApiServicePort;
 import cl.springmachine.hexagonal.ports.outbound.PokemonRepositoryPort;

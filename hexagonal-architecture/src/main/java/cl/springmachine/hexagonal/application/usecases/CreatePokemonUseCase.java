@@ -1,4 +1,4 @@
-package cl.springmachine.hexagonal.core.usecases;
+package cl.springmachine.hexagonal.application.usecases;
 
 public interface CreatePokemonUseCase {
 

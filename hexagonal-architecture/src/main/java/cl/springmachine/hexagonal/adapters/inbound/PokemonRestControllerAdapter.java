@@ -1,8 +1,8 @@
 package cl.springmachine.hexagonal.adapters.inbound;
 
-import cl.springmachine.hexagonal.core.domain.pokemon.Pokemon;
-import cl.springmachine.hexagonal.core.usecases.CreatePokemonUseCase;
-import cl.springmachine.hexagonal.core.usecases.ReadPokemonUseCase;
+import cl.springmachine.hexagonal.application.domain.pokemon.Pokemon;
+import cl.springmachine.hexagonal.application.usecases.CreatePokemonUseCase;
+import cl.springmachine.hexagonal.application.usecases.ReadPokemonUseCase;
 import cl.springmachine.hexagonal.ports.inbound.PokemonDto;
 import cl.springmachine.hexagonal.ports.inbound.PokemonRestControllerPort;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,7 @@ public class PokemonRestControllerAdapter implements PokemonRestControllerPort {
     private final ReadPokemonUseCase readPokemonUseCase;
 
     public PokemonRestControllerAdapter(CreatePokemonUseCase createPokemonUseCase,
-                                        ReadPokemonUseCase readPokemonUseCase) {
+            ReadPokemonUseCase readPokemonUseCase) {
         this.createPokemonUseCase = createPokemonUseCase;
         this.readPokemonUseCase = readPokemonUseCase;
     }

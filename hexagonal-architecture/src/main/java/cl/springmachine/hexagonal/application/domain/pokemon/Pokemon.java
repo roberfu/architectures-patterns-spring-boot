@@ -1,4 +1,4 @@
-package cl.springmachine.hexagonal.core.domain.pokemon;
+package cl.springmachine.hexagonal.application.domain.pokemon;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
