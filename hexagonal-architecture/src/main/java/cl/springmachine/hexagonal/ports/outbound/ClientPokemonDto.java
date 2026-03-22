@@ -1,4 +1,4 @@
-package cl.springmachine.hexagonal.adapters.outbound;
+package cl.springmachine.hexagonal.ports.outbound;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PokeApiPokemonDto {
+public class ClientPokemonDto {
 
     private Integer id;
 
