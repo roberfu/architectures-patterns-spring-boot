@@ -1,4 +1,4 @@
-package cl.springmachine.hexagonal.ports.outbound;
+package cl.springmachine.hexagonal.infra.adapters.outbound.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

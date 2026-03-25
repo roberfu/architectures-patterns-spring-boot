@@ -1,5 +1,5 @@
 application:
-  title: '@project.artifactId@'
+  name: '@project.artifactId@'
   version: '@project.version@'
 spring:
   jpa:

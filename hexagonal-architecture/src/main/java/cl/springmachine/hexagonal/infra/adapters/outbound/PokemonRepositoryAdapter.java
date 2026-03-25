@@ -1,7 +1,8 @@
-package cl.springmachine.hexagonal.adapters.outbound;
+package cl.springmachine.hexagonal.infra.adapters.outbound;
 
-import cl.springmachine.hexagonal.application.domain.pokemon.Pokemon;
-import cl.springmachine.hexagonal.ports.outbound.PokemonRepositoryPort;
+import cl.springmachine.hexagonal.core.application.domain.pokemon.Pokemon;
+import cl.springmachine.hexagonal.core.ports.outbound.PokemonRepositoryPort;
+import cl.springmachine.hexagonal.infra.adapters.outbound.entity.PokemonEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.Objects;
@@ -19,9 +20,9 @@ public class PokemonRepositoryAdapter implements PokemonRepositoryPort {
     @Override
     public Integer savePokemon(Pokemon pokemon) {
         PokemonEntity entity = Objects.requireNonNull(PokemonEntity.builder()
-                .name(pokemon.getName())
-                .type(pokemon.getType())
-                .pokedexNumber(pokemon.getPokedexNumber())
+                .name(pokemon.name())
+                .type(pokemon.type())
+                .pokedexNumber(Integer.parseInt(pokemon.pokedexNumber()))
                 .build());
 
         return repositoryAdapter.save(entity).getPokedexNumber();
@@ -30,11 +31,8 @@ public class PokemonRepositoryAdapter implements PokemonRepositoryPort {
     @Override
     public Pokemon getPokemon(Integer pokedexNumber) {
         Optional<PokemonEntity> optional = repositoryAdapter.findByPokedexNumber(pokedexNumber);
-        return optional.map(pokemonEntity -> Pokemon.builder()
-                .name(pokemonEntity.getName())
-                .type(pokemonEntity.getType())
-                .pokedexNumber(pokemonEntity.getPokedexNumber())
-                .build()).orElse(null);
+        return optional.map(pokemonEntity -> new Pokemon(pokemonEntity.getName(),
+                pokemonEntity.getPokedexNumber().toString(), pokemonEntity.getType())).orElse(null);
     }
 
 }

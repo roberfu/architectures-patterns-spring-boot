@@ -1,4 +1,4 @@
-package cl.springmachine.hexagonal.adapters.outbound.config;
+package cl.springmachine.hexagonal.infra.adapters.outbound.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
