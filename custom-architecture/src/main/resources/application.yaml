@@ -1,8 +1,0 @@
-application:
-  title: '@project.artifactId@'
-  version: '@project.version@'
-spring:
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    show-sql: true
