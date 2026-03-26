@@ -1,4 +1,4 @@
-package cl.springmachine.hexagonal.infra.adapters.inbound.dto;
+package cl.springmachine.hexagonal.adapters.inbound.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

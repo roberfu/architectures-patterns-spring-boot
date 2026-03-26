@@ -1,8 +1,8 @@
-package cl.springmachine.hexagonal.core.application.service;
+package cl.springmachine.hexagonal.application.service;
 
-import cl.springmachine.hexagonal.core.application.domain.pokemon.Pokemon;
-import cl.springmachine.hexagonal.core.ports.inbound.GetPokemonUseCasePort;
-import cl.springmachine.hexagonal.core.ports.outbound.PokemonRepositoryPort;
+import cl.springmachine.hexagonal.application.domain.pokemon.Pokemon;
+import cl.springmachine.hexagonal.application.ports.inbound.GetPokemonUseCasePort;
+import cl.springmachine.hexagonal.application.ports.outbound.PokemonRepositoryPort;
 
 public class GetPokemonUseCaseImpl implements GetPokemonUseCasePort {
 

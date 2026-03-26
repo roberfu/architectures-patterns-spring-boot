@@ -1,8 +1,8 @@
-package cl.springmachine.hexagonal.infra.adapters.outbound;
+package cl.springmachine.hexagonal.adapters.outbound;
 
-import cl.springmachine.hexagonal.core.application.domain.pokemon.Pokemon;
-import cl.springmachine.hexagonal.core.ports.outbound.PokemonClientServicePort;
-import cl.springmachine.hexagonal.infra.adapters.outbound.dto.ClientPokemonDto;
+import cl.springmachine.hexagonal.adapters.outbound.dto.ClientPokemonDto;
+import cl.springmachine.hexagonal.application.domain.pokemon.Pokemon;
+import cl.springmachine.hexagonal.application.ports.outbound.PokemonClientServicePort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

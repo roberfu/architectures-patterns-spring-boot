@@ -1,9 +1,8 @@
-package cl.springmachine.hexagonal.infra.adapters.inbound;
+package cl.springmachine.hexagonal.adapters.inbound;
 
-import cl.springmachine.hexagonal.core.application.domain.pokemon.Pokemon;
-import cl.springmachine.hexagonal.core.ports.inbound.CreatePokemonUseCasePort;
-import cl.springmachine.hexagonal.core.ports.inbound.GetPokemonUseCasePort;
-import cl.springmachine.hexagonal.infra.adapters.inbound.dto.PokemonDto;
+import cl.springmachine.hexagonal.adapters.inbound.dto.PokemonDto;
+import cl.springmachine.hexagonal.application.ports.inbound.CreatePokemonUseCasePort;
+import cl.springmachine.hexagonal.application.ports.inbound.GetPokemonUseCasePort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +34,7 @@ public class PokemonRestControllerAdapter {
 
     @GetMapping("/{number}")
     public ResponseEntity<PokemonDto> getPokemon(@PathVariable Integer number) {
-        Pokemon pokemon = getPokemonUseCase.getPokemon(number);
+        var pokemon = getPokemonUseCase.getPokemon(number);
         PokemonDto response = new PokemonDto(pokemon.name(), pokemon.pokedexNumber(), pokemon.type());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

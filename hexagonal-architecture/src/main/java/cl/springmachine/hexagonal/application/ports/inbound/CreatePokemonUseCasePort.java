@@ -1,4 +1,4 @@
-package cl.springmachine.hexagonal.core.ports.inbound;
+package cl.springmachine.hexagonal.application.ports.inbound;
 
 public interface CreatePokemonUseCasePort {
 
