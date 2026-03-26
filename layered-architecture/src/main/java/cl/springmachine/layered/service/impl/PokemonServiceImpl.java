@@ -1,26 +1,25 @@
 package cl.springmachine.layered.service.impl;
 
-import java.util.Objects;
-import java.util.Optional;
-
+import cl.springmachine.layered.entity.PokemonEntity;
+import cl.springmachine.layered.repository.PokemonRepository;
+import cl.springmachine.layered.service.PokemonClientExternalService;
+import cl.springmachine.layered.service.PokemonService;
+import cl.springmachine.layered.service.dto.PokemonClientDto;
+import cl.springmachine.layered.service.dto.PokemonDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cl.springmachine.layered.dto.PokeApiPokemonDTO;
-import cl.springmachine.layered.dto.PokemonDTO;
-import cl.springmachine.layered.entity.PokemonEntity;
-import cl.springmachine.layered.repository.PokemonRepository;
-import cl.springmachine.layered.service.PokeApiExternalService;
-import cl.springmachine.layered.service.PokemonService;
+import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class PokemonServiceImpl implements PokemonService {
 
     private final PokemonRepository pokemonRepository;
 
-    private final PokeApiExternalService pokeApiService;
+    private final PokemonClientExternalService pokeApiService;
 
-    public PokemonServiceImpl(PokemonRepository pokemonRepository, PokeApiExternalService pokeApiService) {
+    public PokemonServiceImpl(PokemonRepository pokemonRepository, PokemonClientExternalService pokeApiService) {
         this.pokemonRepository = pokemonRepository;
         this.pokeApiService = pokeApiService;
     }
@@ -28,8 +27,8 @@ public class PokemonServiceImpl implements PokemonService {
     @Override
     @Transactional
     public Integer savePokemon(String name) {
-        PokeApiPokemonDTO pokeApiPokemonDTO = pokeApiService.getPokemonInfo(name);
-        PokemonDTO pokemonDTO = PokemonDTO.builder()
+        PokemonClientDto pokeApiPokemonDTO = pokeApiService.getPokemonInfo(name);
+        PokemonDto pokemonDTO = PokemonDto.builder()
                 .name(pokeApiPokemonDTO.getName())
                 .pokedexNumber(pokeApiPokemonDTO.getId())
                 .type(pokeApiPokemonDTO.getTypes()
@@ -46,9 +45,9 @@ public class PokemonServiceImpl implements PokemonService {
     }
 
     @Override
-    public PokemonDTO getPokemon(Integer pokedexNumber) {
+    public PokemonDto getPokemon(Integer pokedexNumber) {
         Optional<PokemonEntity> optional = pokemonRepository.findById(Objects.requireNonNull(pokedexNumber));
-        return optional.map(pokemonEntity -> PokemonDTO.builder()
+        return optional.map(pokemonEntity -> PokemonDto.builder()
                 .pokedexNumber(pokemonEntity.getPokedexNumber())
                 .name(pokemonEntity.getName())
                 .type(pokemonEntity.getType())

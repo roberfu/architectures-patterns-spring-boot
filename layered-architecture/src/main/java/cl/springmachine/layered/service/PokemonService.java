@@ -1,11 +1,11 @@
 package cl.springmachine.layered.service;
 
-import cl.springmachine.layered.dto.PokemonDTO;
+import cl.springmachine.layered.service.dto.PokemonDto;
 
 public interface PokemonService {
 
     Integer savePokemon(String name);
 
-    PokemonDTO getPokemon(Integer pokedexNumber);
+    PokemonDto getPokemon(Integer pokedexNumber);
 
 }

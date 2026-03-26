@@ -1,4 +1,4 @@
-package cl.springmachine.layered.dto;
+package cl.springmachine.layered.service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PokeApiPokemonDTO {
+public class PokemonClientDto {
 
     private Integer id;
 

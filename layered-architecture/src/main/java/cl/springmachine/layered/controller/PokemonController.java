@@ -1,7 +1,7 @@
 package cl.springmachine.layered.controller;
 
-import cl.springmachine.layered.dto.PokemonDTO;
 import cl.springmachine.layered.service.PokemonService;
+import cl.springmachine.layered.service.dto.PokemonDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +28,7 @@ public class PokemonController {
     }
 
     @GetMapping("/{pokedexNumber}")
-    ResponseEntity<PokemonDTO> getPokemon(@PathVariable Integer pokedexNumber) {
+    ResponseEntity<PokemonDto> getPokemon(@PathVariable Integer pokedexNumber) {
         return new ResponseEntity<>(pokemonService.getPokemon(pokedexNumber), HttpStatus.OK);
     }
 

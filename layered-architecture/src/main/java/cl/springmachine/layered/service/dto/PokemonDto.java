@@ -1,4 +1,4 @@
-package cl.springmachine.layered.dto;
+package cl.springmachine.layered.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class PokemonDTO {
+public class PokemonDto {
 
     @JsonProperty("name")
     private String name;
