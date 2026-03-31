@@ -1,14 +1,14 @@
-# software-architectures-in-spring-boot
+# architectures-patters-spring-boot
 Diferentes patrones de arquitectura de software implementados en Spring Boot.
 
 ## Patrones arquitectónicos
 
 | Patrón | Descripción |
 |--------|-------------|
-| [clean-architecture](./clean-architecture) | Arquitectura limpia con separación estricta de capas |
-| [hexagonal-architecture](./hexagonal-architecture) | Arquitectura hexagonal (ports y adapters) |
+| [clean-architecture](./clean-architecture) | Arquitectura clean con separación estricta de capas |
+| [hexagonal-architecture](./hexagonal-architecture) | Arquitectura hexagonal (puertos y adaptadores) |
 | [layered-architecture](./layered-architecture) | Arquitectura por capas tradicional |
-| [onion-architecture](./onion-architecture) | Arquitectura onion (核心 con dependencias hacia afuera) |
+| [onion-architecture](./onion-architecture) | Arquitectura onion (Capas de cebolla con dependencias hacia afuera) |
 
 ## Estructura común
 
